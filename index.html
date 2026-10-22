@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text to Speech</title>
+  <style>  
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  text-align: center;
+  padding: 40px;
+} 
+  textarea {
+  width: 80%;
+  max-width: 500px;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+button {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <h1>Text to Speech</h1>
+
+  <textarea id="textInput" rows="6" placeholder="Type something for me to read..."></textarea>
+
+  <br />
+
+  <button id="speakBtn">Speak</button>
+  <button id="stopBtn">stop</button>
+
+
+
+  <script>
+    const textInput = document.getElementById("textInput");
+const speakBtn = document.getElementById("speakBtn");
+const stopBtn = document.getElementById("stopBtn");
+  
+speakBtn.addEventListener("click", function () {
+  const text = textInput.value;
+  const speech = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(speech);
+});
+  
+  
+  </script>
+</body>
+</html>
